@@ -1,0 +1,3 @@
+https://realpython.com/get-started-with-django-1/
+https://medium.com/@himanshuxd/how-to-create-registration-login-webapp-with-django-2-0-fd33dc7a6c67
+https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/
