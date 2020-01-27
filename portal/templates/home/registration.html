@@ -4,17 +4,20 @@
   <div class="container">
     <div class="jumbotron">
       {% if registered %}
-        <h1>Thank you for registering!</h1>
+        <center><h1>Registration Done !</h1></center>
+        <center>{% load static %} <img src="{% static "images/reg_check.jpg" %}" alt="PO" width="200" height="200 "/></center><br>
+        <center><a href="{% url 'home:user_login' %}">Click here to login</a></center>
       {% else %}
         <h1>Register Here</h1>
         <h3>Just fill out the form.</h3>
-<form enctype="multipart/form-data" method="POST">
+        <form enctype="multipart/form-data" method="POST">
           {% csrf_token %}
           {{ user_form.as_p }}
           {{ profile_form.as_p }}
           <input type="submit" name="" value="Register">
         </form>
-        
+        <br>
+        {% load static %} <img src="{% static "images/register.jpeg" %}" alt="PO" width="1050" height="110"/>
       {% endif %}
     </div>
   </div>

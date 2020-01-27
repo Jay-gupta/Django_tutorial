@@ -11,3 +11,10 @@ class UserProfileInfoForm(forms.ModelForm):
      class Meta():
          model = UserProfileInfo
          fields = ('portfolio_site','profile_pic')
+
+#form trial
+# class ContactForm(forms.Form):
+#     name = forms.CharField()
+#     email = forms.EmailField()
+#     gender = forms.ChoiceField(choices = [('male', 'Male'), ('female', 'Female')])
+

@@ -5,13 +5,59 @@
     <title>Base</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-</head>
+    
+    <style>
+      
+      html {
+        background-color: #66a6e2;
+        /* background-image:url('{{ STATIC_URL }}images/back.jpg');
+        background-repeat:no-repeat;
+        background-size:100%; */
+      }
+
+      div.jumbotron{
+        /* margin-top:180px;
+        margin-bottom:80px;
+        margin-right:500px;
+        margin-left:500px;
+        font-family:arial; */
+        background-color: #ffffff;
+        border: 1px solid black;
+        opacity: 0.6;
+        filter: alpha(opacity=90);
+      }
+
+      div.calculator{
+        margin-top:10px;
+        margin-bottom:10px;
+        margin-right:10px;
+        margin-left:10px;
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        font-family:arial;
+        background-color: #ebfbb7;
+        border: 2px solid rgb(5, 22, 80);
+        opacity: 0.8;
+        filter: alpha(opacity=90);
+      }
+
+      h3{
+	      color:black;
+      }
+
+    </style>
+  </head>
   <body>
+    
     <nav class="navbar navbar-default navbar-static-top">
+      <div class='logo'>{% load static %} <img src="{% static "images/Hitech_logo.png" %}" alt="Hi!" /></div>
       <div class="container">
         <ul class="nav navbar-nav">
-{# Django Home Link / Admin Link / Register Link#}
-          <li><a class="navbar-brand" href="{% url 'index' %}">DJANGO</a></li>
+          
+          {# Django Home Link / Admin Link / Register Link#}
+          <li><a class="navbar-brand" href="{% url 'index' %}">HOME</a></li>
           <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
           <li><a class="navbar-link" href="{% url 'home:register' %}">Register</a></li>     
           {# Some logic on what to display for last item#}
@@ -20,7 +66,7 @@
           {% else %}
             <li><a class="navbar-link" href="{% url 'home:user_login' %}">Login</a></li>
           {% endif %}
-</ul>
+        </ul>
       </div>
     </nav>
     <div class="container">

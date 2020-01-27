@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+#
 
 
 def index(request):
@@ -55,5 +56,24 @@ def user_login(request):
             print("Someone tried to login and failed.")
             print("They used username: {} and password: {}".format(username,password))
             return HttpResponse("Invalid login details given")
-    else:
+    else: 
         return render(request, 'home/login.html', {})
+
+#trial
+def contact(request):
+    if request.method == 'POST':
+        job_size = request.POST['job_size']
+        print(job_size)
+        # company_size = request.POST.get('company_size')
+        # priority = request.POST.get('priority')
+        # ctc = request.POST.get('ctc')
+        # hrs = request.POST.get('hrs')
+        # turnaround_time = request.POST.get('turnaround_time')
+        # req_spec = request.POST.get('req_spec')
+        # credit_days = request.POST.get('credit_days')
+        # manpower_util = request.POST.get('manpower_util')
+
+    else:
+        return render(request, 'home/index.html', {})
+
+

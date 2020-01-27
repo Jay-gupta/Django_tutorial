@@ -2,11 +2,112 @@
 {% block body_block %}
 <div class="container">
   <div class="jumbotron">
-    <h1>Welcome to the Djungle !</h1>
+    
     {% if user.is_authenticated %}
-        <h2>Hello {{ user.username }}</h2>
+        <h1>Estimate the Project Price</h1>
+        <h3>Hello {{ user.username }}</h3><br>
+        <div class = 'calculator'>
+          <form  method="POST" action ="{% url 'index' %}">
+
+            
+
+            <h3><b>Enter following Details</b></h3>
+            {% csrf_token %}
+            <table style="width:80%">
+              <tr>
+                <td><label for='job_size'>Job Size</label></td>
+                <td><select name='job_size'>
+                  <option value="30">0-$400</option>
+                  <option value="29">$400-$1000</option>
+                  <option value="28">$1000-$3000</option>
+                  <option value="27">$3,000-$5,000</option>
+                  <option value="26">$5,000-$10,000</option>
+                  <option value="25">$10,000-$25,000</option>
+                  <option value="24">$25,000-$50,000</option>
+                  <option value="23">$25,000-$50,000</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td><label for='company_size'>Company Size</label></td>
+                <td><select name='company_size'>
+                  <option value="30">0-$400</option>
+                  <option value="29">$400-$1000</option>
+                  <option value="28">$1000-$3000</option>
+                  <option value="27">$3,000-$5,000</option>
+                  <option value="26">$5,000-$10,000</option>
+                  <option value="25">$10,000-$25,000</option>
+                  <option value="24">$25,000-$50,000</option>
+                  <option value="23">$25,000-$50,000</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td><label for='priority'>Priority</label></td>
+                <td><select name='priority'>
+                  <option value="15">1.1</option>
+                  <option value="10">1</option>
+                  <option value="5">2</option>
+                  <option value="0">3</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td><label for='ctc'>Average CTC of the Production team working on this Project</label></td>
+                <td><input type="text" name="ctc" placeholder="value"></td>
+              </tr>
+              <br>
+              <tr>
+                <td><label for='hrs'>Estimated # of hrs for this Project</label></td>
+                <td><input type="text" name="hrs" placeholder="value"></td>
+              </tr>
+              <tr>
+                <td><label for='turnaround_time'>Turnaround Time</label></td>
+                <td><select name='turnaround_time'>
+                  <option value="10">Very Quick</option>
+                  <option value="5">Quick</option>
+                  <option value="0">Average</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td><label for='req_spec'>Requirement Specification</label></td>
+                <td><select name='req_spec'>
+                  <option value="100">Hardly any definition</option>
+                  <option value="40">Roughly Defined</option>
+                  <option value="20">Clearly Defined</option>
+                  <option value="10">Clearly defined with Disclaimer</option>
+                  <option value="0">Manmonth</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td><label for='credit_days'>Credit Days</label></td>
+                <td><select name='credit_days'>
+                  <option value="0">Advance Payment</option>
+                  <option value="1.0">21 days Credit</option>
+                  <option value="2.0">30 days Credit</option>
+                  <option value="2.5">45 days Credit</option>
+                  <option value="3.0">60 days Credit</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td><label for='manpower_util'>Current Manpower Utilization</label></td>
+                <td><select name='manpower_util'>
+                  <option value="-10">110%</option>
+                  <option value="0">90%</option>
+                  <option value="10">80%</option>
+                  <option value="20">70%</option>
+                  <option value="25">60%</option>
+                </select></td>
+              </tr>
+            </table>
+            <br><br>
+            <center><input type="submit" name="" value="submit"></center><br>
+            <label>Project cost per hour</label>
+            <input type="text" name="result" placeholder='result'>
+          </form>
+        </div>
+
     {% else %}
-        <h2>Register or Login if you'd like to</h2>
+      <h1>Welcome to the Price Optimization portal !</h1>
+      <h2>Register or Login if you'd like to</h2>
+      {% load static %} <img src="{% static "images/po.png" %}" alt="PO" width="1000" height="400"/>
     {% endif %}
   </div>
 </div>
